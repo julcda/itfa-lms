@@ -25,6 +25,16 @@ class TeacherMaterial extends Model
     public function category()  { return $this->belongsTo(Category::class); }
     public function uploader()  { return $this->belongsTo(User::class, 'uploaded_by'); }
 
+    public function collections()
+    {
+        return $this->belongsToMany(
+            TeacherCollection::class,
+            'teacher_collection_material',
+            'teacher_material_id',
+            'teacher_collection_id'
+        )->withPivot('sort_order')->withTimestamps();
+    }
+
     // ── Accessors ─────────────────────────────────────────────────
     public function getTitleLocalizedAttribute(): string
     {

@@ -10,11 +10,18 @@
         <h2 class="text-lg font-bold text-gray-800">{{ __('messages.teacher_library') }}</h2>
         <p class="text-sm text-gray-500">{{ __('messages.teacher_library_subtitle') }}</p>
     </div>
-    <a href="{{ route('admin.teacher-materials.create') }}"
-       class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm px-5 py-2.5 rounded-xl shadow transition active:scale-95">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/></svg>
-        {{ __('messages.add_material') }}
-    </a>
+    <div class="flex items-center gap-2">
+        <a href="{{ route('admin.teacher-collections.index') }}"
+           class="inline-flex items-center gap-2 border border-indigo-200 bg-indigo-50 text-indigo-600 hover:bg-indigo-100 font-semibold text-sm px-4 py-2.5 rounded-xl shadow-sm transition">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/></svg>
+            {{ __('messages.teacher_collections') }}
+        </a>
+        <a href="{{ route('admin.teacher-materials.create') }}"
+           class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm px-5 py-2.5 rounded-xl shadow transition active:scale-95">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/></svg>
+            {{ __('messages.add_material') }}
+        </a>
+    </div>
 </div>
 
 {{-- Stats bar --}}

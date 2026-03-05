@@ -192,6 +192,13 @@
                 <span class="nav-tooltip">{{ __('messages.teacher_library') }}</span>
             </div>
             <div class="nav-item-wrap">
+                <a href="{{ route('admin.teacher-collections.index') }}" class="nav-item {{ request()->routeIs('admin.teacher-collections.*') ? 'active' : '' }}">
+                    <span class="nav-icon-wrap" style="background:rgba(99,102,241,0.15);color:#6366f1"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/></svg></span>
+                    <span class="nav-label">{{ __('messages.teacher_collections') }}</span>
+                </a>
+                <span class="nav-tooltip">{{ __('messages.teacher_collections') }}</span>
+            </div>
+            <div class="nav-item-wrap">
                 <a href="{{ route('admin.quizzes.index') }}" class="nav-item {{ request()->routeIs('admin.quizzes.*') || request()->routeIs('admin.quiz-questions.*') ? 'active' : '' }}">
                     <span class="nav-icon-wrap" style="background:rgba(167,139,250,0.15);color:#a78bfa"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></span>
                     <span class="nav-label">{{ __('messages.quizzes') }}</span>

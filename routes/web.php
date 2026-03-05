@@ -71,6 +71,15 @@ Route::middleware(['auth', 'verified', 'role:admin|teacher'])
             Route::delete('teacher-materials/{teacherMaterial}', [Admin\TeacherMaterialController::class, 'destroy'])->name('teacher-materials.destroy');
         });
 
+        // Teacher Collections
+        Route::resource('teacher-collections', Admin\TeacherCollectionController::class)
+            ->parameters(['teacher-collections' => 'teacherCollection']);
+        Route::post('teacher-collections/{teacherCollection}/materials', [Admin\TeacherCollectionController::class, 'addMaterials'])->name('teacher-collections.add-materials');
+        Route::delete('teacher-collections/{teacherCollection}/materials/{teacherMaterial}', [Admin\TeacherCollectionController::class, 'removeMaterial'])->name('teacher-collections.remove-material');
+        Route::post('teacher-collections/{teacherCollection}/reorder-materials', [Admin\TeacherCollectionController::class, 'reorderMaterials'])->name('teacher-collections.reorder-materials');
+        Route::post('teacher-collections/reorder', [Admin\TeacherCollectionController::class, 'reorder'])->name('teacher-collections.reorder');
+        Route::patch('teacher-collections/{teacherCollection}/materials/{teacherMaterial}/move', [Admin\TeacherCollectionController::class, 'moveMaterial'])->name('teacher-collections.move-material');
+
         // Quizzes
         Route::resource('quizzes', Admin\QuizController::class);
         Route::resource('quizzes.questions', Admin\QuizQuestionController::class);
